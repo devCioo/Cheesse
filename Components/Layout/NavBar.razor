@@ -1,0 +1,8 @@
+﻿<MudAppBar Color="Color.Warning">
+	<MudIconButton OnClick="@(() => OnMenuToggle.InvokeAsync())" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" />
+</MudAppBar>
+
+@code {
+	[Parameter]
+	public EventCallback OnMenuToggle { get; set; }
+}
