@@ -1,0 +1,12 @@
+﻿<MudDrawer @bind-Open="Open">
+	<MudDrawerHeader Class="justify-center align-center">
+		<MudText Typo="Typo.h5">Cheesse</MudText>
+	</MudDrawerHeader>
+	<MudNavMenu>
+	</MudNavMenu>
+</MudDrawer>
+
+@code {
+	[Parameter]
+	public bool Open { get; set; }
+}

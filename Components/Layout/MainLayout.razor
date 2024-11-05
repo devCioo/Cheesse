@@ -1,9 +1,26 @@
 ﻿@inherits LayoutComponentBase
 
-@Body
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+<MudLayout>
+     <NavBar OnMenuToggle="ToggleMenu" />
+     <NavMenu Open="Open" />
+     <MudMainContent>
+         @Body
+     </MudMainContent>
+</MudLayout>
+
+<MudAlert Severity="Severity.Error" Variant="Variant.Filled" id="blazor-error-ui">
+    <MudText>An unhandled error has occured.</MudText>
+    <MudLink Href="" Class="reload">Reload</MudLink>
+    <MudLink Class="dismiss">🗙</MudLink>
+</MudAlert>
+
+@code {
+    private bool Open { get; set; } = true;
+
+    private void ToggleMenu() => Open = !Open;
+}
