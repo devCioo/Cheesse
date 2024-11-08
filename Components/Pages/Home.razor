@@ -2,6 +2,91 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<MudContainer Class="mt-16">
+	<MudGrid Class="mt-8">
+		<MudItem xs="12" sm="6" md="4">
+			<MudCard Elevation="25" Class="rounded-lg pb-4" Style="height: 400px;">
+				<MudCardHeader>
+					<CardHeaderContent>
+						<MudText Typo="Typo.h5" Align="Align.Center">Welcome, [Player]</MudText>
+					</CardHeaderContent>
+				</MudCardHeader>
+				<MudCardContent>
+					<MudStack Row Justify="Justify.SpaceBetween">
+						<MudText Typo="Typo.h6">Level:</MudText>
+						<MudText Typo="Typo.h6">1 (100/250xp)</MudText>
+					</MudStack>
+					<MudStack Row Justify="Justify.SpaceBetween">
+						<MudText Typo="Typo.h6">Rank:</MudText>
+						<MudText Typo="Typo.h6">Challenger (1800)</MudText>
+					</MudStack>
+					<MudStack Row Justify="Justify.SpaceBetween">
+						<MudText Typo="Typo.h6">Wins:</MudText>
+						<MudText Typo="Typo.h6">7</MudText>
+					</MudStack>
+					<MudStack Row Justify="Justify.SpaceBetween">
+						<MudText Typo="Typo.h6">Draws:</MudText>
+						<MudText Typo="Typo.h6">2</MudText>
+					</MudStack>
+					<MudStack Row Justify="Justify.SpaceBetween">
+						<MudText Typo="Typo.h6">Defeats:</MudText>
+						<MudText Typo="Typo.h6">1</MudText>
+					</MudStack>
+				</MudCardContent>
+			</MudCard>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4">
+			<MudCard Elevation="25" Class="rounded-lg pb-4" Style="height: 400px;">
+				<MudCardHeader>
+					<CardHeaderContent>
+						<MudText Typo="Typo.h5" Align="Align.Center">Play</MudText>
+					</CardHeaderContent>
+				</MudCardHeader>
+				<MudCardContent Class="d-flex justify-center">
+					<MudButton>
+						<ChildContent>
+							<MudIcon Icon="@Icons.Material.Filled.PlayCircle" Size="Size.Large" Style="width: 250px; height: 250px;" />
+						</ChildContent>
+					</MudButton>
+				</MudCardContent>
+			</MudCard>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4">
+			<MudCard Elevation="25" Class="rounded-lg pb-4" Style="height: 500px;">
+				<MudCardHeader>
+					<CardHeaderContent>
+						<MudText Typo="Typo.h5" Align="Align.Center">Missions</MudText>
+					</CardHeaderContent>
+				</MudCardHeader>
+				<MudCardContent>
+					<MudList T="string">
+						<MudListItem Text="Tutorial II (1/2)" SecondaryText="Difficulty: Easy" Icon="@Icons.Material.Filled.CheckCircleOutline" IconColor="Color.Default" Expanded>
+							<NestedList>
+								<MudListItem Text="Play 5 games (3/5)" Icon="@Icons.Material.Filled.CheckCircleOutline" IconColor="Color.Default" />
+								<MudListItem Text="Win one game (1/1)" Icon="@Icons.Material.Filled.CheckCircle" IconColor="Color.Success" />
+							</NestedList>
+						</MudListItem>
+						<MudListItem Text="Spend 1000 coins in the shop (540/1000)" SecondaryText="Difficulty: Medium" Icon="@Icons.Material.Filled.CheckCircleOutline" IconColor="Color.Default" />
+						<MudListItem Text="Win one game in less than 50 moves (0/1)" SecondaryText="Difficulty: Hard" Icon="@Icons.Material.Filled.CheckCircleOutline" IconColor="Color.Default" />
+					</MudList>
+				</MudCardContent>
+			</MudCard>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4">
+			<MudCard Elevation="25" Class="rounded-lg pb-4" Style="height: 600px;">
+				<MudCardHeader>
+					<CardHeaderContent>
+						<MudText Typo="Typo.h5" Align="Align.Center">Last games</MudText>
+					</CardHeaderContent>
+				</MudCardHeader>
+				<MudCardContent>
+					<MudList T="string">
+						<MudListItem Text="Ranked" SecondaryText="08.11.2024 19:05" Icon="@Icons.Material.Filled.EmojiEvents" IconColor="Color.Success" />
+						<MudListItem Text="Ranked" SecondaryText="08.11.2024 21:14" Icon="@Icons.Material.Filled.EmojiEvents" IconColor="Color.Error" />
+						<MudListItem Text="Normal" SecondaryText="08.11.2024 21:31" Icon="@Icons.Material.Filled.EmojiEvents" IconColor="Color.Success" />
+					</MudList>
+				</MudCardContent>
+			</MudCard>
+		</MudItem>
+	</MudGrid>
+</MudContainer>
