@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Lexend";
+    src: url('fonts/Lexend.ttf')
+}
+
 h1:focus {
     outline: none;
 }
@@ -20,9 +25,9 @@ h1:focus {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
 
 .darker-border-checkbox.form-check-input {
     border-color: #929292;

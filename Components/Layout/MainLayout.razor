@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider Theme="MudTheme" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -20,6 +20,17 @@
 </MudAlert>
 
 @code {
+    private MudTheme MudTheme = new MudTheme
+    {
+        Typography = new Typography
+        {
+            Default = new Default
+            {
+                FontFamily = new[] { "Lexend" }
+            }
+        }
+    };
+
     private bool Open { get; set; } = true;
 
     private void ToggleMenu() => Open = !Open;
