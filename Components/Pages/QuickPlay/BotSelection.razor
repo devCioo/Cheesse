@@ -1,0 +1,121 @@
+﻿@using Cheesse.Games
+
+<MudText Typo="Typo.h4" Align="Align.Center">Choose bot difficulty</MudText>
+<MudGrid Justify="Justify.Center" Class="mt-8">
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Beginner)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Beginner</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Filled.ChildCare" Color="Color.Default" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Easy)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Easy</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Rounded.SentimentVerySatisfied" Color="Color.Info" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Medium)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Medium</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Rounded.SentimentNeutral" Color="Color.Success" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Hard)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Hard</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Sharp.SentimentVeryDissatisfied" Color="Color.Warning" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Advanced)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Advanced</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Filled.School" Color="Color.Error" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Insane)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Insane</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Filled.Whatshot" Color="Color.Primary" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+	<MudItem Class="d-flex justify-center">
+		<MudButton OnClick="@(() => Difficulty = BotDifficulty.Grandmaster)" Class="ma-4 pa-4">
+			<ChildContent>
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 200px; height: 200px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">Grandmaster</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent>
+						<MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Secondary" Style="width: 50px; height: 50px;" />
+					</MudCardContent>
+				</MudCard>
+			</ChildContent>
+		</MudButton>
+	</MudItem>
+</MudGrid>
+
+@code {
+	private BotDifficulty Difficulty { get; set; }
+}
