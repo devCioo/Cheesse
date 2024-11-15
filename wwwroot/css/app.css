@@ -1,4 +1,4 @@
 @font-face {
     font-family: "Lexend";
-    src: url('fonts/Lexend.ttf')
+    src: url('../fonts/Lexend.ttf') format('truetype')
 }

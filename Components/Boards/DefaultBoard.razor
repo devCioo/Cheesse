@@ -1,0 +1,82 @@
+﻿@using Cheesse.Boards
+@using Cheesse.Pieces
+@using Cheesse.Utils
+
+<MudPaper Elevation="0" Class="d-flex justify-center">
+	<MudDropContainer T="IPiece" Items="Pieces" ItemsSelector="IsInField" CanDrop="CanDrop" ItemDropped="OnPieceDropped" Class="border-2 border-solid mud-border-lines-default" 
+		Style="width: 512px;">
+		<ChildContent>
+			@for (int r = 0; r < 8; r++)
+			{
+				<div class="d-flex">
+					@for (int c = 0; c < 8; c++)
+					{
+						<MudDropZone T="IPiece" Identifier="@($"{BoardUtils.GetColumnName(c)}{BoardUtils.GetRowName(r)}")"
+							Class="d-flex justify-center align-center border-2 border-solid docs-gray-bg mud-border-lines-default" Style="width: 64px; height: 64px;" />
+					}
+				</div>
+			}
+		</ChildContent>
+		<ItemRenderer>
+			<div class="d-flex justify-center align-center flex-grow-1">
+				<MudIcon Icon="@context.Icon" Color="@(context.Color == PieceColor.White ? Color.Secondary : Color.Primary)" Size="Size.Large" />
+			</div>
+		</ItemRenderer>
+	</MudDropContainer>
+</MudPaper>
+
+@code {
+	private Board Board { get; set; } = new Board();
+	private List<IPiece> Pieces { get; set; }
+
+	protected override void OnInitialized()
+	{
+		Pieces = Board.Grid.Cast<IPiece>().Where(x => x != null).ToList();
+	}
+
+	private bool IsInField(IPiece piece, string field)
+	{
+		var split = field.ToCharArray();
+		var row = BoardUtils.GetRowName(int.Parse(split.Last().ToString()));
+		var column = BoardUtils.GetColumnNumber(split.First());
+
+		if (Board.Grid[row, column] == piece)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	private bool CanDrop(IPiece piece, string field)
+	{
+		var split = field.ToCharArray();
+		var row = BoardUtils.GetRowName(int.Parse(split.Last().ToString()));
+		var column = BoardUtils.GetColumnNumber(split.First());
+
+		if (Board.Grid[row, column] == null)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	private void OnPieceDropped(MudItemDropInfo<IPiece> info)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			for (int j = 0; j < 8; j++)
+			{
+				if (Board.Grid[i, j] == info.Item)
+				{
+					Board.Grid[i, j] = null;
+					break;
+				}
+			}
+		}
+
+		var split = info.DropzoneIdentifier.ToCharArray();
+		var row = BoardUtils.GetRowName(int.Parse(split.Last().ToString()));
+		var column = BoardUtils.GetColumnNumber(split.First());
+		Board.Grid[row, column] = info.Item;
+	}
+}
