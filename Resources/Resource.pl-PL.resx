@@ -117,4 +117,175 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>aktywni gracze</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Zaawansowany</value>
+  </data>
+  <data name="Beginner" xml:space="preserve">
+    <value>Początkujący</value>
+  </data>
+  <data name="Challenge" xml:space="preserve">
+    <value>Wyzwanie</value>
+  </data>
+  <data name="Challenge1Subtitle" xml:space="preserve">
+    <value>Z wojny wraca się z tarczą, lub na tarczy</value>
+  </data>
+  <data name="Challenge1Title" xml:space="preserve">
+    <value>Szaleństwo pionów</value>
+  </data>
+  <data name="Challenge2Subtitle" xml:space="preserve">
+    <value>Dajmy zakochanym nacieszyć się wspólnymi chwilami</value>
+  </data>
+  <data name="Challenge2Title" xml:space="preserve">
+    <value>Miesiąc miodowy</value>
+  </data>
+  <data name="Challenge3Subtitle" xml:space="preserve">
+    <value>Strzelam szybciej niż mój własny cień</value>
+  </data>
+  <data name="Challenge3Title" xml:space="preserve">
+    <value>Lucky Luke</value>
+  </data>
+  <data name="Challenger" xml:space="preserve">
+    <value>Pretendent</value>
+  </data>
+  <data name="Challenges" xml:space="preserve">
+    <value>Wyzwania</value>
+  </data>
+  <data name="ChooseBotDifficulty" xml:space="preserve">
+    <value>Wybierz poziom bota</value>
+  </data>
+  <data name="ChooseGameMode" xml:space="preserve">
+    <value>Wybierz rodzaj rozgrywki</value>
+  </data>
+  <data name="Defeats" xml:space="preserve">
+    <value>Przegrane</value>
+  </data>
+  <data name="Difficulty" xml:space="preserve">
+    <value>Trudność</value>
+  </data>
+  <data name="DifficultyEasy" xml:space="preserve">
+    <value>łatwa</value>
+  </data>
+  <data name="DifficultyHard" xml:space="preserve">
+    <value>trudna</value>
+  </data>
+  <data name="DifficultyMedium" xml:space="preserve">
+    <value>średnia</value>
+  </data>
+  <data name="Draws" xml:space="preserve">
+    <value>Remisy</value>
+  </data>
+  <data name="Easy" xml:space="preserve">
+    <value>Łatwy</value>
+  </data>
+  <data name="ExperiencePoints" xml:space="preserve">
+    <value>pd</value>
+  </data>
+  <data name="FindOpponent" xml:space="preserve">
+    <value>Znajdź przeciwnika</value>
+  </data>
+  <data name="Grandmaster" xml:space="preserve">
+    <value>Arcymistrz</value>
+  </data>
+  <data name="Hard" xml:space="preserve">
+    <value>Trudny</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Pomoc</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
+  <data name="HowToPlay" xml:space="preserve">
+    <value>Jak grać</value>
+  </data>
+  <data name="Insane" xml:space="preserve">
+    <value>Niemożliwy</value>
+  </data>
+  <data name="Invite" xml:space="preserve">
+    <value>Zaproś</value>
+  </data>
+  <data name="LastGames" xml:space="preserve">
+    <value>Ostatnie gry</value>
+  </data>
+  <data name="Leaderboards" xml:space="preserve">
+    <value>Rankingi</value>
+  </data>
+  <data name="LeaderboardsNotLoaded" xml:space="preserve">
+    <value>Rankingi nie mogą zostać załadowane</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Poziom</value>
+  </data>
+  <data name="LookingForOpponent" xml:space="preserve">
+    <value>Wyszukuję przeciwnika</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Średni</value>
+  </data>
+  <data name="MissionPlay5Games" xml:space="preserve">
+    <value>Zagraj 5 gier</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Misje</value>
+  </data>
+  <data name="MissionSpend1000Coins" xml:space="preserve">
+    <value>Wydaj 1000 monet w sklepie</value>
+  </data>
+  <data name="MissionWin1Game" xml:space="preserve">
+    <value>Wygraj jedną grę</value>
+  </data>
+  <data name="MissionWin1GameLessThan50Moves" xml:space="preserve">
+    <value>Wygraj jedną grę w mniej niż 50 ruchów</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normalna</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Graj</value>
+  </data>
+  <data name="PlayLocally" xml:space="preserve">
+    <value>Graj lokalnie</value>
+  </data>
+  <data name="PlayWithBot" xml:space="preserve">
+    <value>Graj z botem</value>
+  </data>
+  <data name="PlayWithFriend" xml:space="preserve">
+    <value>Graj ze znajomym</value>
+  </data>
+  <data name="QuickPlay" xml:space="preserve">
+    <value>Szybka gra</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Ranga</value>
+  </data>
+  <data name="Ranked" xml:space="preserve">
+    <value>Rankingowa</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Przeładuj</value>
+  </data>
+  <data name="SectionNotAvailable" xml:space="preserve">
+    <value>Ta sekcja jest obecnie niedostępna</value>
+  </data>
+  <data name="Tournaments" xml:space="preserve">
+    <value>Turnieje</value>
+  </data>
+  <data name="TournamentsNotAvailable" xml:space="preserve">
+    <value>Nie znaleziono żadnych dostępnych turniejów</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>Samouczek</value>
+  </data>
+  <data name="UnhandledErrorOccurred" xml:space="preserve">
+    <value>Wystąpił nieoczekiwany błąd.</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Witaj</value>
+  </data>
+  <data name="Wins" xml:space="preserve">
+    <value>Zwycięstwa</value>
+  </data>
 </root>

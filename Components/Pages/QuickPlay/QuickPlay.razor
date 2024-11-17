@@ -2,12 +2,12 @@
 @using Cheesse.Components.Boards
 @using Cheesse.Games
 
-<PageTitle>Quick Play</PageTitle>
+<PageTitle>@Localizer["QuickPlay"]</PageTitle>
 
 <MudContainer Class="mt-16">
 	@if (Mode == null)
 	{
-		<MudText Typo="Typo.h3" Align="Align.Center" GutterBottom>Choose game mode</MudText>
+		<MudText Typo="Typo.h3" Align="Align.Center" GutterBottom>@Localizer["ChooseGameMode"]</MudText>
 		<MudGrid Justify="Justify.Center" Class="mt-8">
 			<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
 				<MudButton OnClick="@(() => Mode = GameMode.Online)" Class="pa-8">
@@ -15,7 +15,7 @@
 						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
 							<MudCardHeader>
 								<CardHeaderContent>
-									<MudText Typo="Typo.h5" Align="Align.Center">Find opponent</MudText>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["FindOpponent"]</MudText>
 								</CardHeaderContent>
 							</MudCardHeader>
 							<MudCardContent>
@@ -31,7 +31,7 @@
 						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
 							<MudCardHeader>
 								<CardHeaderContent>
-									<MudText Typo="Typo.h5" Align="Align.Center">Play with bot</MudText>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayWithBot"]</MudText>
 								</CardHeaderContent>
 							</MudCardHeader>
 							<MudCardContent>
@@ -47,7 +47,7 @@
 						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
 							<MudCardHeader>
 								<CardHeaderContent>
-									<MudText Typo="Typo.h5" Align="Align.Center">Play with friend</MudText>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayWithFriend"]</MudText>
 								</CardHeaderContent>
 							</MudCardHeader>
 							<MudCardContent>
@@ -63,7 +63,7 @@
 						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
 							<MudCardHeader>
 								<CardHeaderContent>
-									<MudText Typo="Typo.h5" Align="Align.Center">Play locally</MudText>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayLocally"]</MudText>
 								</CardHeaderContent>
 							</MudCardHeader>
 							<MudCardContent>
@@ -79,7 +79,7 @@
 						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
 							<MudCardHeader>
 								<CardHeaderContent>
-									<MudText Typo="Typo.h5" Align="Align.Center">Challenges</MudText>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Challenges"]</MudText>
 								</CardHeaderContent>
 							</MudCardHeader>
 							<MudCardContent>

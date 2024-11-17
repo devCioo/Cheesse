@@ -7,13 +7,13 @@
 				</CardHeaderAvatar>
 				<CardHeaderContent>
 					<MudText Typo="Typo.body1">Player</MudText>
-					<MudText Typo="Typo.body2">Rank: Challenger, Level: 1</MudText>
+					<MudText Typo="Typo.body2">@Localizer["Rank"]: @Localizer["Challenger"], @Localizer["Level"]: 1</MudText>
 				</CardHeaderContent>
 			</MudCardHeader>
 			<MudPaper Elevation="0" Height="100px" Class="ps-4">
-				<MudText Typo="Typo.body2">Wins: 7</MudText>
-				<MudText Typo="Typo.body2">Draws: 2</MudText>
-				<MudText Typo="Typo.body2">Defeats: 1</MudText>
+				<MudText Typo="Typo.body2">@Localizer["Wins"]: 7</MudText>
+				<MudText Typo="Typo.body2">@Localizer["Draws"]: 2</MudText>
+				<MudText Typo="Typo.body2">@Localizer["Defeats"]: 1</MudText>
 			</MudPaper>
 			<MudCardActions>
 				<MudIconButton Icon="@Icons.Material.Filled.Person" Color="Color.Default" />
@@ -44,7 +44,7 @@
 		<MudPaper Width="300px">
 			<MudList T="string">
 				<MudListSubheader>
-					Invite
+					@Localizer["Invite"]
 				</MudListSubheader>
 				<MudListItem Icon="@Icons.Material.Filled.Person" IconColor="Color.Success">
 					<MudStack Row Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
