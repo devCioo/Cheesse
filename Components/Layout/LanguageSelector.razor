@@ -1,0 +1,43 @@
+﻿@using System.Globalization
+@using Microsoft.Extensions.Options
+@inject IConfiguration Configuration
+@inject NavigationManager Navigation
+
+<MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopLeft">
+	<ActivatorContent>
+		<MudImage Src="@($"images/flags/{CultureInfo.CurrentCulture.Name}.svg")" ObjectFit="ObjectFit.Cover" Width="24" Height="24" Class="rounded-circle" />
+	</ActivatorContent>
+	<ChildContent>
+		@foreach (var culture in SupportedCultures)
+		{
+			<MudMenuItem OnClick="@(() => ChangeLanguage(culture))">
+				<MudStack Row>
+					<MudImage Src="@($"images/flags/{culture.Name}.svg")" Height="20" />
+					<MudText Color="Color.Inherit">@culture.NativeName</MudText>
+				</MudStack>
+			</MudMenuItem>
+		}
+	</ChildContent>
+</MudMenu>
+
+@code {
+	private CultureInfo[] SupportedCultures { get; set; }
+
+	protected override void OnInitialized()
+	{
+		SupportedCultures = Configuration.GetSection("Localization:SupportedCultures").Get<string[]>()
+			.Select(x => CultureInfo.GetCultureInfo(x)).ToArray();
+	}
+
+	private void ChangeLanguage(CultureInfo cultureInfo)
+	{
+		if (CultureInfo.CurrentCulture != cultureInfo)
+		{
+			var uri = new Uri(Navigation.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+			var cultureEscaped = Uri.EscapeDataString(cultureInfo.Name);
+			var uriEscaped = Uri.EscapeDataString(uri);
+
+			Navigation.NavigateTo($"Preference/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", true);
+		}
+	}
+}

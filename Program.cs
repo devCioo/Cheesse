@@ -8,10 +8,11 @@ builder.Services.AddRazorComponents()
 	.AddInteractiveServerComponents();
 builder.Services.AddMudServices();
 builder.Services.AddLocalization();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-string[] supportedCultures = ["en-US", "pl-PL"];
+var supportedCultures = builder.Configuration.GetSection("Localization:SupportedCultures").Get<string[]>();
 var localizationOptions = new RequestLocalizationOptions()
 	.SetDefaultCulture(supportedCultures[0])
 	.AddSupportedCultures(supportedCultures)
@@ -27,10 +28,9 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAntiforgery();
-
 app.MapStaticAssets();
+app.MapControllers();
 app.MapRazorComponents<App>()
 	.AddInteractiveServerRenderMode();
 
