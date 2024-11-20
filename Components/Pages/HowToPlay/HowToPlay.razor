@@ -1,0 +1,93 @@
+﻿@page "/how-to-play"
+@inject NavigationManager NavigationManager
+
+<PageTitle>@Localizer["HowToPlay"]</PageTitle>
+
+<MudContainer Class="mt-16">
+	<MudGrid Justify="Justify.Center" Class="mt-8">
+		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
+			<MudButton OnClick="@(() => NavigationManager.NavigateTo(Path.Combine(NavigationManager.Uri, "basics")))" Class="pa-8">
+				<ChildContent>
+					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+						<MudCardHeader>
+							<CardHeaderContent>
+								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Basics"]</MudText>
+							</CardHeaderContent>
+						</MudCardHeader>
+						<MudCardContent>
+							<MudIcon Icon="@Icons.Material.Filled.School" Color="Color.Info" Style="width: 100px; height: 100px;" />
+						</MudCardContent>
+					</MudCard>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
+			<MudButton OnClick="@(() => NavigationManager.NavigateTo(Path.Combine(NavigationManager.Uri, "openings")))" Class="pa-8">
+				<ChildContent>
+					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+						<MudCardHeader>
+							<CardHeaderContent>
+								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Openings"]</MudText>
+							</CardHeaderContent>
+						</MudCardHeader>
+						<MudCardContent>
+							<MudIcon Icon="@Icons.Material.Filled.OpenInNew" Color="Color.Default" Style="width: 100px; height: 100px;" />
+						</MudCardContent>
+					</MudCard>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
+			<MudButton OnClick="@(() => NavigationManager.NavigateTo(Path.Combine(NavigationManager.Uri, "midgame")))" Class="pa-8">
+				<ChildContent>
+					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+						<MudCardHeader>
+							<CardHeaderContent>
+								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Midgame"]</MudText>
+							</CardHeaderContent>
+						</MudCardHeader>
+						<MudCardContent>
+							<MudIcon Icon="@Icons.Material.Filled.VerticalAlignCenter" Color="Color.Secondary" Style="width: 100px; height: 100px;" />
+						</MudCardContent>
+					</MudCard>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
+			<MudButton OnClick="@(() => NavigationManager.NavigateTo(Path.Combine(NavigationManager.Uri, "endgame")))" Class="pa-8">
+				<ChildContent>
+					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+						<MudCardHeader>
+							<CardHeaderContent>
+								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Endgame"]</MudText>
+							</CardHeaderContent>
+						</MudCardHeader>
+						<MudCardContent>
+							<MudIcon Icon="@Icons.Material.Filled.Flag" Color="Color.Tertiary" Style="width: 100px; height: 100px;" />
+						</MudCardContent>
+					</MudCard>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
+			<MudButton OnClick="@(() => NavigationManager.NavigateTo(Path.Combine(NavigationManager.Uri, "advanced-strategies")))" Class="pa-8">
+				<ChildContent>
+					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+						<MudCardHeader>
+							<CardHeaderContent>
+								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["AdvancedStrategies"]</MudText>
+							</CardHeaderContent>
+						</MudCardHeader>
+						<MudCardContent>
+							<MudIcon Icon="@Icons.Material.Filled.School" Color="Color.Primary" Style="width: 100px; height: 100px;" />
+						</MudCardContent>
+					</MudCard>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+	</MudGrid>
+</MudContainer>
+
+@code {
+
+}

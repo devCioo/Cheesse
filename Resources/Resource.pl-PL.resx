@@ -123,6 +123,12 @@
   <data name="Advanced" xml:space="preserve">
     <value>Zaawansowany</value>
   </data>
+  <data name="AdvancedStrategies" xml:space="preserve">
+    <value>Zaawansowane strategie</value>
+  </data>
+  <data name="Basics" xml:space="preserve">
+    <value>Podstawy</value>
+  </data>
   <data name="Beginner" xml:space="preserve">
     <value>Początkujący</value>
   </data>
@@ -180,6 +186,9 @@
   <data name="Easy" xml:space="preserve">
     <value>Łatwy</value>
   </data>
+  <data name="Endgame" xml:space="preserve">
+    <value>Koniec gry</value>
+  </data>
   <data name="ExperiencePoints" xml:space="preserve">
     <value>pd</value>
   </data>
@@ -225,6 +234,9 @@
   <data name="Medium" xml:space="preserve">
     <value>Średni</value>
   </data>
+  <data name="Midgame" xml:space="preserve">
+    <value>Środek gry</value>
+  </data>
   <data name="MissionPlay5Games" xml:space="preserve">
     <value>Zagraj 5 gier</value>
   </data>
@@ -242,6 +254,9 @@
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normalna</value>
+  </data>
+  <data name="Openings" xml:space="preserve">
+    <value>Otwarcia</value>
   </data>
   <data name="Play" xml:space="preserve">
     <value>Graj</value>

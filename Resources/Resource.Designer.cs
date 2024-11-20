@@ -79,6 +79,24 @@ namespace Cheesse.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced strategies.
+        /// </summary>
+        public static string AdvancedStrategies {
+            get {
+                return ResourceManager.GetString("AdvancedStrategies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basics.
+        /// </summary>
+        public static string Basics {
+            get {
+                return ResourceManager.GetString("Basics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Beginner.
         /// </summary>
         public static string Beginner {
@@ -250,6 +268,15 @@ namespace Cheesse.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Endgame.
+        /// </summary>
+        public static string Endgame {
+            get {
+                return ResourceManager.GetString("Endgame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to xp.
         /// </summary>
         public static string ExperiencePoints {
@@ -385,6 +412,15 @@ namespace Cheesse.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Midgame.
+        /// </summary>
+        public static string Midgame {
+            get {
+                return ResourceManager.GetString("Midgame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Play 5 games.
         /// </summary>
         public static string MissionPlay5Games {
@@ -435,6 +471,15 @@ namespace Cheesse.Resources {
         public static string Normal {
             get {
                 return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Openings.
+        /// </summary>
+        public static string Openings {
+            get {
+                return ResourceManager.GetString("Openings", resourceCulture);
             }
         }
         
