@@ -1,4 +1,5 @@
 using Cheesse.Components;
+using Cheesse.Data;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddMudServices();
 builder.Services.AddLocalization();
 builder.Services.AddControllers();
+builder.Services.AddDbContext<CheesseDbContext>();
 
 var app = builder.Build();
 
