@@ -1,0 +1,44 @@
+﻿@page "/login"
+@using Cheesse.Components.Layout
+@layout BlankLayout
+
+<MudPaper Width="100%" Height="100%" Class="d-flex justify-center align-center" Style="background-color: var(--mud-palette-gray-lighter);">
+	<MudPaper Width="350px">
+		<MudForm Class="pa-6">
+			<MudGrid Spacing="3">
+				<MudItem xs="12" Class="mb-8">
+					<MudText Typo="Typo.h4" Align="Align.Center" >@Localizer["LoginTitle"]</MudText>
+				</MudItem>
+				<MudItem xs="12">
+					<MudTextField @bind-Value="Username" Label="@Localizer["Username"]" ShrinkLabel Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Person" 
+						AdornmentColor="Color.Warning" />
+				</MudItem>
+				<MudItem xs="12">
+					<MudGrid Spacing="0">
+						<MudItem xs="12">
+							<MudTextField @bind-Value="Password" Label="@Localizer["Password"]" InputType="InputType.Password" ShrinkLabel Adornment="Adornment.Start" 
+								AdornmentIcon="@Icons.Material.Outlined.Lock" AdornmentColor="Color.Warning" />
+						</MudItem>
+						<MudItem xs="12" Class="d-flex justify-end">
+							<MudLink Href="reset-password" Typo="Typo.body2">@Localizer["ForgotPassword"]</MudLink>
+						</MudItem>
+					</MudGrid>
+				</MudItem>
+				<MudItem xs="12" Class="my-4">
+					<MudButton ButtonType="ButtonType.Submit" FullWidth Variant="Variant.Filled" Color="Color.Warning">@Localizer["LoginAction"]</MudButton>
+				</MudItem>
+				<MudItem xs="12">
+					<MudStack Row Spacing="1" Justify="Justify.Center">
+						<MudText Typo="Typo.body2">@Localizer["NoAccount"]</MudText>
+						<MudLink Href="register" Typo="Typo.body2">@Localizer["SignUp"]</MudLink>
+					</MudStack>
+				</MudItem>
+			</MudGrid>
+		</MudForm>
+	</MudPaper>
+</MudPaper>
+
+@code {
+	private string Username { get; set; }
+	private string Password { get; set; }
+}

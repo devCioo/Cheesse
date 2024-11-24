@@ -195,6 +195,9 @@
   <data name="FindOpponent" xml:space="preserve">
     <value>Znajdź przeciwnika</value>
   </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Zapomniałeś hasła?</value>
+  </data>
   <data name="Grandmaster" xml:space="preserve">
     <value>Arcymistrz</value>
   </data>
@@ -228,6 +231,12 @@
   <data name="Level" xml:space="preserve">
     <value>Poziom</value>
   </data>
+  <data name="LoginAction" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Logowanie</value>
+  </data>
   <data name="LookingForOpponent" xml:space="preserve">
     <value>Wyszukuję przeciwnika</value>
   </data>
@@ -252,11 +261,17 @@
   <data name="MissionWin1GameLessThan50Moves" xml:space="preserve">
     <value>Wygraj jedną grę w mniej niż 50 ruchów</value>
   </data>
+  <data name="NoAccount" xml:space="preserve">
+    <value>Nie masz konta?</value>
+  </data>
   <data name="Normal" xml:space="preserve">
     <value>Normalna</value>
   </data>
   <data name="Openings" xml:space="preserve">
     <value>Otwarcia</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
   </data>
   <data name="Play" xml:space="preserve">
     <value>Graj</value>
@@ -285,6 +300,9 @@
   <data name="SectionNotAvailable" xml:space="preserve">
     <value>Ta sekcja jest obecnie niedostępna</value>
   </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Zarejestruj się</value>
+  </data>
   <data name="Tournaments" xml:space="preserve">
     <value>Turnieje</value>
   </data>
@@ -296,6 +314,9 @@
   </data>
   <data name="UnhandledErrorOccurred" xml:space="preserve">
     <value>Wystąpił nieoczekiwany błąd.</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Witaj</value>

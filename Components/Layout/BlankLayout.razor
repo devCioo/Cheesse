@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="MudTheme" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    @Body
+</MudLayout>
+
+<MudAlert Severity="Severity.Error" Variant="Variant.Filled" id="blazor-error-ui">
+    <MudText>@Localizer["UnhandledErrorOccurred"]An unhandled error has occured.</MudText>
+    <MudLink Href="" Class="reload">@Localizer["Reload"]</MudLink>
+    <MudLink Class="dismiss">🗙</MudLink>
+</MudAlert>
+
+@code {
+    private MudTheme MudTheme = new MudTheme
+    {
+        Typography = new Typography
+        {
+            Default = new Default
+            {
+                FontFamily = new[] { "Lexend" }
+            }
+        }
+    };
+}
+
+<style>
+    html, body {
+        height: 100%;
+    }
+</style>
