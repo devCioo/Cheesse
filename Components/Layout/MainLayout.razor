@@ -1,16 +1,16 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider Theme="MudTheme" />
+<MudThemeProvider @bind-IsDarkMode="IsDarkMode" Theme="MudTheme" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
-     <NavBar OnMenuToggle="ToggleMenu" />
-     <NavMenu Open="Open" />
-     <MudMainContent>
-         @Body
-     </MudMainContent>
+    <NavBar OnMenuToggle="ToggleMenu" OnThemeToggle="ToggleTheme" />
+    <NavMenu Open="Open" />
+    <MudMainContent>
+        @Body
+    </MudMainContent>
 </MudLayout>
 
 <MudAlert Severity="Severity.Error" Variant="Variant.Filled" id="blazor-error-ui">
@@ -32,6 +32,9 @@
     };
 
     private bool Open { get; set; } = true;
+    private bool IsDarkMode { get; set; }
 
     private void ToggleMenu() => Open = !Open;
+
+    private void ToggleTheme(bool isDarkMode) => IsDarkMode = isDarkMode;
 }

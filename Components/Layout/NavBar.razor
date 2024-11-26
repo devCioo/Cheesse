@@ -5,6 +5,8 @@
 		</MudItem>
 		<MudItem Class="d-flex">
 			<LanguageSelector />
+			<MudToggleIconButton Toggled="IsDarkMode" ToggledChanged="ToggleTheme" ToggledIcon="@Icons.Material.Filled.LightMode" Icon="@Icons.Material.Filled.DarkMode" 
+				ToggledColor="Color.Inherit" Color="Color.Inherit" />
 		</MudItem>
 	</MudGrid>
 </MudAppBar>
@@ -12,4 +14,15 @@
 @code {
 	[Parameter]
 	public EventCallback OnMenuToggle { get; set; }
+
+	[Parameter]
+	public EventCallback<bool> OnThemeToggle { get; set; }
+
+	private bool IsDarkMode { get; set; }
+
+	private async Task ToggleTheme()
+	{
+		IsDarkMode = !IsDarkMode;
+		await OnThemeToggle.InvokeAsync(IsDarkMode);
+	}
 }
