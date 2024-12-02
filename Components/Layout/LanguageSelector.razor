@@ -3,20 +3,20 @@
 @inject IConfiguration Configuration
 @inject NavigationManager Navigation
 
-<MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopLeft" Class="pa-3">
+<MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopLeft" Class="ma-1">
 	<ActivatorContent>
 		<MudImage Src="@($"images/flags/{CultureInfo.CurrentCulture.Name}.svg")" ObjectFit="ObjectFit.Cover" Width="24" Height="24" Class="rounded-circle" />
 	</ActivatorContent>
 	<ChildContent>
-		@foreach (var culture in SupportedCultures)
-		{
-			<MudMenuItem OnClick="@(() => ChangeLanguage(culture))">
-				<MudStack Row>
-					<MudImage Src="@($"images/flags/{culture.Name}.svg")" Height="20" />
-					<MudText Color="Color.Inherit">@culture.NativeName</MudText>
-				</MudStack>
-			</MudMenuItem>
-		}
+	@foreach (var culture in SupportedCultures)
+	{
+		<MudMenuItem OnClick="@(() => ChangeLanguage(culture))">
+			<MudStack Row>
+				<MudImage Src="@($"images/flags/{culture.Name}.svg")" Height="20" />
+				<MudText Color="Color.Inherit">@culture.NativeName</MudText>
+			</MudStack>
+		</MudMenuItem>
+	}
 	</ChildContent>
 </MudMenu>
 
