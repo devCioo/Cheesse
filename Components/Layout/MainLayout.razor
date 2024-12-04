@@ -14,7 +14,7 @@
 </MudLayout>
 
 <MudAlert Severity="Severity.Error" Variant="Variant.Filled" id="blazor-error-ui">
-    <MudText>@Localizer["UnhandledErrorOccurred"]An unhandled error has occured.</MudText>
+    <MudText>@Localizer["UnhandledErrorOccurred"]</MudText>
     <MudLink Href="" Class="reload">@Localizer["Reload"]</MudLink>
     <MudLink Class="dismiss">🗙</MudLink>
 </MudAlert>
@@ -29,13 +29,21 @@
             DrawerIcon = Colors.Orange.Default,
             HoverOpacity = 0.1
         },
+        PaletteDark = new PaletteDark
+        {
+            AppbarBackground = Colors.Amber.Darken3,
+            AppbarText = Colors.Shades.White,
+            DrawerBackground = Colors.Gray.Darken4,
+            DrawerIcon = Colors.Orange.Default,
+            DrawerText = Colors.Shades.White
+        },
         Typography = new Typography
         {
             Default = new Default
             {
                 FontFamily = new[] { "Lexend" }
             }
-        }
+        },
     };
 
     private bool Open { get; set; } = true;
