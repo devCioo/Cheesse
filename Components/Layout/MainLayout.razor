@@ -14,8 +14,10 @@
 </MudLayout>
 
 <MudAlert Severity="Severity.Error" Variant="Variant.Filled" id="blazor-error-ui">
-    <MudText>@Localizer["UnhandledErrorOccurred"]</MudText>
-    <MudLink Href="" Class="reload">@Localizer["Reload"]</MudLink>
+    <MudStack Row Spacing="1">
+        <MudText>@Localizer["UnhandledErrorOccurred"]</MudText>
+        <MudLink Href="" Class="reload">@Localizer["Reload"]</MudLink>
+    </MudStack>
     <MudLink Class="dismiss">🗙</MudLink>
 </MudAlert>
 
@@ -25,6 +27,7 @@
         PaletteLight = new PaletteLight
         {
             AppbarBackground = Colors.Orange.Default,
+            AppbarText = Colors.Shades.White,
             DrawerBackground = Colors.Gray.Lighten4,
             DrawerIcon = Colors.Orange.Default,
             HoverOpacity = 0.1

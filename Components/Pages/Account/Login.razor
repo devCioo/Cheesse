@@ -1,44 +1,84 @@
-﻿@page "/login"
+﻿@page "/account/login"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Cheesse.Account.Models
 @using Cheesse.Components.Layout
+@using Cheesse.Data
+@using Cheesse.Utils
+@inject CheesseDbContext DbContext
+@inject NavigationManager Navigation
 @layout BlankLayout
 
 <MudPaper Width="100%" Height="100%" Class="d-flex justify-center align-center" Style="background-color: var(--mud-palette-gray-lighter);">
-	<MudPaper Width="350px">
-		<MudForm Class="pa-6">
-			<MudGrid Spacing="3">
-				<MudItem xs="12" Class="mb-8">
-					<MudText Typo="Typo.h4" Align="Align.Center" >@Localizer["LoginTitle"]</MudText>
-				</MudItem>
-				<MudItem xs="12">
-					<MudTextField @bind-Value="Username" Label="@Localizer["Username"]" ShrinkLabel Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Person" 
-						AdornmentColor="Color.Warning" />
-				</MudItem>
-				<MudItem xs="12">
-					<MudGrid Spacing="0">
-						<MudItem xs="12">
-							<MudTextField @bind-Value="Password" Label="@Localizer["Password"]" InputType="InputType.Password" ShrinkLabel Adornment="Adornment.Start" 
-								AdornmentIcon="@Icons.Material.Outlined.Lock" AdornmentColor="Color.Warning" />
-						</MudItem>
-						<MudItem xs="12" Class="d-flex justify-end">
-							<MudLink Href="reset-password" Typo="Typo.body2">@Localizer["ForgotPassword"]</MudLink>
-						</MudItem>
-					</MudGrid>
-				</MudItem>
-				<MudItem xs="12" Class="my-4">
-					<MudButton ButtonType="ButtonType.Submit" FullWidth Variant="Variant.Filled" Color="Color.Warning">@Localizer["LoginAction"]</MudButton>
-				</MudItem>
-				<MudItem xs="12">
-					<MudStack Row Spacing="1" Justify="Justify.Center">
-						<MudText Typo="Typo.body2">@Localizer["NoAccount"]</MudText>
-						<MudLink Href="register" Typo="Typo.body2">@Localizer["SignUp"]</MudLink>
-					</MudStack>
-				</MudItem>
-			</MudGrid>
-		</MudForm>
-	</MudPaper>
+    <MudPaper Width="350px" Class="pa-6">
+        <EditForm Model="@Model" OnValidSubmit="Authenticate" FormName="LoginForm">
+            <DataAnnotationsValidator />
+            <MudGrid Spacing="3">
+                <MudItem xs="12" Class="mb-8">
+                    <MudText Typo="Typo.h4" Align="Align.Center">@Localizer["LoginTitle"]</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Model.Login" name="Model.Login" Label="@Localizer["Username"]" ShrinkLabel Adornment="Adornment.Start" 
+                        AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Warning"/>
+                    <ValidationMessage For="() => Model.Login" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudGrid Spacing="0">
+                        <MudItem xs="12">
+                            <MudTextField @bind-Value="Model.Password" name="Model.Password" Label="@Localizer["Password"]" InputType="InputType.Password" ShrinkLabel 
+                                Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Outlined.Lock" AdornmentColor="Color.Warning" />
+                            <ValidationMessage For="() => Model.Password" />
+                        </MudItem>
+                        <MudItem xs="12" Class="d-flex justify-end">
+                            <MudLink Href="reset-password" Typo="Typo.body2">@Localizer["ForgotPassword"]</MudLink>
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudText Typo="Typo.body2" Color="Color.Error">@errorMessage</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudButton ButtonType="ButtonType.Submit" FullWidth Variant="Variant.Filled" Color="Color.Warning">@Localizer["LoginAction"]</MudButton>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudStack Row Spacing="1" Justify="Justify.Center">
+                        <MudText Typo="Typo.body2">@Localizer["NoAccount"]</MudText>
+                        <MudLink Href="register" Typo="Typo.body2">@Localizer["SignUp"]</MudLink>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    </MudPaper>
 </MudPaper>
 
 @code {
-	private string Username { get; set; }
-	private string Password { get; set; }
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    [SupplyParameterFromForm]
+    private LoginModel Model { get; set; } = new();
+
+    private string errorMessage;
+
+    private async Task Authenticate()
+    {
+        var user = DbContext.Users.FirstOrDefault(u => u.Login == Model.Login);
+        if (user is null || user.PasswordHash != StringUtils.GetMD5Hash(Model.Password))
+        {
+            errorMessage = Localizer["InvalidCredentials"];
+            return;
+        }
+
+        var claims = new List<Claim>
+		{
+			new Claim(ClaimTypes.Name, Model.Login)
+		};
+
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(identity);
+
+        await HttpContext.SignInAsync(principal);
+        Navigation.NavigateTo("/");
+    }
 }

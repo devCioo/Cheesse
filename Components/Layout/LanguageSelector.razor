@@ -5,7 +5,7 @@
 
 <MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopLeft" Class="ma-1">
 	<ActivatorContent>
-		<MudImage Src="@($"images/flags/{CultureInfo.CurrentCulture.Name}.svg")" ObjectFit="ObjectFit.Cover" Width="24" Height="24" Class="rounded-circle" />
+		<MudIconButton Icon="@CurrentLanguageIcon"  />
 	</ActivatorContent>
 	<ChildContent>
 	@foreach (var culture in SupportedCultures)
@@ -22,11 +22,13 @@
 
 @code {
 	private CultureInfo[] SupportedCultures { get; set; }
+	private string CurrentLanguageIcon { get; set; } = string.Empty;
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
-		SupportedCultures = Configuration.GetSection("Localization:SupportedCultures").Get<string[]>()
-			.Select(x => CultureInfo.GetCultureInfo(x)).ToArray();
+		SupportedCultures = Configuration.GetSection("Localization:SupportedCultures").Get<string[]>().Select(x => CultureInfo.GetCultureInfo(x)).ToArray();
+
+		CurrentLanguageIcon = await GetCurrentLanguageIconAsync();
 	}
 
 	private void ChangeLanguage(CultureInfo cultureInfo)
@@ -39,5 +41,17 @@
 
 			Navigation.NavigateTo($"Preference/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", true);
 		}
+	}
+
+	private async Task<string> GetCurrentLanguageIconAsync()
+	{
+		var iconPath = Path.Combine("wwwroot", "images", "flags", $"{CultureInfo.CurrentCulture.Name}.svg");
+
+		if (File.Exists(iconPath))
+		{
+			return await File.ReadAllTextAsync(iconPath);
+		}
+
+		return string.Empty;
 	}
 }

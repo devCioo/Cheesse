@@ -1,10 +1,11 @@
 ﻿<MudAppBar>
 	<MudStack Row Justify="Justify.SpaceBetween" Class="flex-grow-1">
 		<MudIconButton OnClick="@(() => OnMenuToggle.InvokeAsync())" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" />
-		<MudStack Row Spacing="3">
+		<MudStack Row Spacing="2" Style="height: 48px;">
 			<LanguageSelector />
-			<MudToggleIconButton Toggled="IsDarkMode" ToggledChanged="ToggleTheme" ToggledIcon="@Icons.Material.Filled.LightMode" Icon="@Icons.Material.Filled.DarkMode"
+			<MudToggleIconButton Toggled="IsDarkMode" ToggledChanged="ToggleTheme" ToggledIcon="@Icons.Material.Filled.LightMode" Icon="@Icons.Material.Filled.DarkMode" 
 				ToggledColor="Color.Inherit" Color="Color.Inherit" />
+			<UserMenu />
 		</MudStack>
 	</MudStack>
 </MudAppBar>

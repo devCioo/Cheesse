@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+
+<MudMenu AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopRight">
+	<ActivatorContent>
+		<AuthorizeView>
+			<NotAuthorized>
+				<MudIconButton Icon="@Icons.Material.Filled.Person" Color="Color.Inherit" />
+			</NotAuthorized>
+			<Authorized>
+				<MudAvatar Color="Color.Secondary">@char.ToUpper(context.User.Identity.Name.First())</MudAvatar>
+			</Authorized>
+		</AuthorizeView>
+	</ActivatorContent>
+	<ChildContent>
+		<AuthorizeView>
+			<NotAuthorized>
+				<MudMenuItem Href="account/login" Icon="@Icons.Material.Filled.Login">@Localizer["LoginAction"]</MudMenuItem>
+			</NotAuthorized>
+			<Authorized>
+				<MudMenuItem Href="account/logout" Icon="@Icons.Material.Filled.Logout">@Localizer["LogoutAction"]</MudMenuItem>
+			</Authorized>
+		</AuthorizeView>
+	</ChildContent>
+</MudMenu>
+
+@code {
+
+}

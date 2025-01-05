@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
 
 <MudThemeProvider Theme="MudTheme" />
 <MudPopoverProvider />
@@ -10,12 +11,17 @@
 </MudLayout>
 
 <MudAlert Severity="Severity.Error" Variant="Variant.Filled" id="blazor-error-ui">
-    <MudText>@Localizer["UnhandledErrorOccurred"]An unhandled error has occured.</MudText>
-    <MudLink Href="" Class="reload">@Localizer["Reload"]</MudLink>
+    <MudStack Row Spacing="1">
+        <MudText>@Localizer["UnhandledErrorOccurred"]</MudText>
+        <MudLink Href="" Class="reload">@Localizer["Reload"]</MudLink>
+    </MudStack>
     <MudLink Class="dismiss">🗙</MudLink>
 </MudAlert>
 
 @code {
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
     private MudTheme MudTheme = new MudTheme
     {
         Typography = new Typography
@@ -26,6 +32,16 @@
             }
         }
     };
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if (HttpContext is null)
+        {
+            Navigation.Refresh(true);
+        }
+    }
 }
 
 <style>

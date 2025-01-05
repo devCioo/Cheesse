@@ -216,6 +216,9 @@
   <data name="Insane" xml:space="preserve">
     <value>Insane</value>
   </data>
+  <data name="InvalidCredentials" xml:space="preserve">
+    <value>Invalid username or password</value>
+  </data>
   <data name="Invite" xml:space="preserve">
     <value>Invite</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="LoginTitle" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="LogoutAction" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="LookingForOpponent" xml:space="preserve">
     <value>Looking for opponent</value>
@@ -296,6 +302,9 @@
   </data>
   <data name="Reload" xml:space="preserve">
     <value>Reload</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
   </data>
   <data name="SectionNotAvailable" xml:space="preserve">
     <value>This section is currently unavailable</value>

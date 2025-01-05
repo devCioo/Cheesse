@@ -1,5 +1,6 @@
 using Cheesse.Components;
 using Cheesse.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,15 @@ builder.Services.AddMudServices();
 builder.Services.AddLocalization();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<CheesseDbContext>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+	.AddCookie(options =>
+	{
+		options.Cookie.Name = "auth_token";
+		options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
+		options.LoginPath = "/account/login";
+	});
+builder.Services.AddAuthorization();
+builder.Services.AddCascadingAuthenticationState();
 
 var app = builder.Build();
 
@@ -31,6 +41,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAntiforgery();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapStaticAssets();
 app.MapControllers();
 app.MapRazorComponents<App>()
