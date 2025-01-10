@@ -1,6 +1,6 @@
 ﻿@page "/account/logout"
 @using Cheesse.Components.Layout
-@using Microsoft.AspNetCore.Authentication
+@attribute [Authorize]
 @inject NavigationManager Navigation
 @layout BlankLayout
 

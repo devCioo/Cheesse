@@ -15,6 +15,7 @@ builder.Services.AddDbContext<CheesseDbContext>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 	.AddCookie(options =>
 	{
+		options.AccessDeniedPath = "/access-denied";
 		options.Cookie.Name = "auth_token";
 		options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
 		options.LoginPath = "/account/login";

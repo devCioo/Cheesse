@@ -61,6 +61,15 @@ namespace Cheesse.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Access denied.
+        /// </summary>
+        public static string AccessDenied {
+            get {
+                return ResourceManager.GetString("AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to active players.
         /// </summary>
         public static string ActivePlayers {
@@ -84,6 +93,15 @@ namespace Cheesse.Resources {
         public static string AdvancedStrategies {
             get {
                 return ResourceManager.GetString("AdvancedStrategies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This option is only available for logged in users.
+        /// </summary>
+        public static string AuthorizationRequired {
+            get {
+                return ResourceManager.GetString("AuthorizationRequired", resourceCulture);
             }
         }
         
@@ -187,6 +205,15 @@ namespace Cheesse.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check your credentials and try again..
+        /// </summary>
+        public static string CheckCredentials {
+            get {
+                return ResourceManager.GetString("CheckCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose bot difficulty.
         /// </summary>
         public static string ChooseBotDifficulty {
@@ -273,6 +300,15 @@ namespace Cheesse.Resources {
         public static string Endgame {
             get {
                 return ResourceManager.GetString("Endgame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error code.
+        /// </summary>
+        public static string ErrorCode {
+            get {
+                return ResourceManager.GetString("ErrorCode", resourceCulture);
             }
         }
         
@@ -525,6 +561,15 @@ namespace Cheesse.Resources {
         public static string Normal {
             get {
                 return ResourceManager.GetString("Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You do not have permissions to view this page..
+        /// </summary>
+        public static string NoViewPermissions {
+            get {
+                return ResourceManager.GetString("NoViewPermissions", resourceCulture);
             }
         }
         

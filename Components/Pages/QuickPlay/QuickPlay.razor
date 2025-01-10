@@ -1,126 +1,97 @@
 ﻿@page "/quick-play"
 @using Cheesse.Components.Boards
 @using Cheesse.Games
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthProvider
+@inject ISnackbar Snackbar
+@inject NavigationManager Navigation
 
 <PageTitle>@Localizer["QuickPlay"]</PageTitle>
 
 <MudContainer Class="mt-16">
-@if (Mode == null)
-{
 	<MudText Typo="Typo.h3" Align="Align.Center" GutterBottom>@Localizer["ChooseGameMode"]</MudText>
 	<MudGrid Justify="Justify.Center" Class="mt-8">
 		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
-			<MudButton OnClick="@(() => Mode = GameMode.Online)" Class="pa-8">
-				<ChildContent>
-					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
-						<MudCardHeader>
-							<CardHeaderContent>
-								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["FindOpponent"]</MudText>
-							</CardHeaderContent>
-						</MudCardHeader>
-						<MudCardContent>
-							<MudIcon Icon="@Icons.Material.Filled.PersonSearch" Color="Color.Info" Style="width: 100px; height: 100px;" />
-						</MudCardContent>
-					</MudCard>
-				</ChildContent>
+			<MudButton Href="quick-play/search" Class="pa-8">
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["FindOpponent"]</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent Class="d-flex justify-center">
+						<MudIcon Icon="@Icons.Material.Filled.PersonSearch" Color="Color.Info" Style="width: 100px; height: 100px;" />
+					</MudCardContent>
+				</MudCard>
 			</MudButton>
 		</MudItem>
 		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
-			<MudButton OnClick="@(() => Mode = GameMode.Bots)" Class="pa-8">
-				<ChildContent>
-					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
-						<MudCardHeader>
-							<CardHeaderContent>
-								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayWithBot"]</MudText>
-							</CardHeaderContent>
-						</MudCardHeader>
-						<MudCardContent>
-							<MudIcon Icon="@Icons.Material.Filled.SmartToy" Color="Color.Default" Style="width: 100px; height: 100px;" />
-						</MudCardContent>
-					</MudCard>
-				</ChildContent>
+			<MudButton Href="quick-play/bots" Class="pa-8">
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayWithBot"]</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent Class="d-flex justify-center">
+						<MudIcon Icon="@Icons.Material.Filled.SmartToy" Color="Color.Error" Style="width: 100px; height: 100px;" />
+					</MudCardContent>
+				</MudCard>
 			</MudButton>
 		</MudItem>
 		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
-			<MudButton OnClick="@(() => Mode = GameMode.Friend)" Class="pa-8">
-				<ChildContent>
+			<MudTooltip Text="@(!IsAuthenticated ? Localizer["AuthorizationRequired"] : string.Empty)" Placement="Placement.Bottom" Color="Color.Warning">
+				<MudButton Href="quick-play/friends" Class="pa-8" Disabled="!IsAuthenticated" >
 					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
 						<MudCardHeader>
 							<CardHeaderContent>
-								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayWithFriend"]</MudText>
+								<MudText Typo="Typo.h5" Align="Align.Center" Color="@(!IsAuthenticated ? Color.Warning : Color.Default)">@Localizer["PlayWithFriend"]</MudText>
 							</CardHeaderContent>
 						</MudCardHeader>
-						<MudCardContent>
-							<MudIcon Icon="@Icons.Material.Filled.PersonAddAlt1" Color="Color.Secondary" Style="width: 100px; height: 100px;" />
+						<MudCardContent Class="d-flex justify-center">
+							<MudIcon Icon="@Icons.Material.Filled.PersonAddAlt1" Color="@(!IsAuthenticated ? Color.Default : Color.Secondary)" 
+								Style="width: 100px; height: 100px;" />
 						</MudCardContent>
 					</MudCard>
-				</ChildContent>
+				</MudButton>
+			</MudTooltip>
+		</MudItem>
+		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
+			<MudButton Href="quick-play/local" Class="pa-8">
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayLocally"]</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent Class="d-flex justify-center">
+						<MudIcon Icon="@Icons.Material.Filled.People" Color="Color.Tertiary" Style="width: 100px; height: 100px;" />
+					</MudCardContent>
+				</MudCard>
 			</MudButton>
 		</MudItem>
 		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
-			<MudButton OnClick="@(() => Mode = GameMode.Local)" Class="pa-8">
-				<ChildContent>
-					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
-						<MudCardHeader>
-							<CardHeaderContent>
-								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["PlayLocally"]</MudText>
-							</CardHeaderContent>
-						</MudCardHeader>
-						<MudCardContent>
-							<MudIcon Icon="@Icons.Material.Filled.People" Color="Color.Tertiary" Style="width: 100px; height: 100px;" />
-						</MudCardContent>
-					</MudCard>
-				</ChildContent>
-			</MudButton>
-		</MudItem>
-		<MudItem xs="12" sm="6" md="4" Class="d-flex justify-center">
-			<MudButton OnClick="@(() => Mode = GameMode.Challenge)" Class="pa-8">
-				<ChildContent>
-					<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
-						<MudCardHeader>
-							<CardHeaderContent>
-								<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Challenges"]</MudText>
-							</CardHeaderContent>
-						</MudCardHeader>
-						<MudCardContent>
-							<MudIcon Icon="@Icons.Material.Filled.Flag" Color="Color.Primary" Style="width: 100px; height: 100px;" />
-						</MudCardContent>
-					</MudCard>
-				</ChildContent>
+			<MudButton Href="quick-play/challenges" Class="pa-8">
+				<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+					<MudCardHeader>
+						<CardHeaderContent>
+							<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Challenges"]</MudText>
+						</CardHeaderContent>
+					</MudCardHeader>
+					<MudCardContent Class="d-flex justify-center">
+						<MudIcon Icon="@Icons.Material.Filled.Flag" Color="Color.Primary" Style="width: 100px; height: 100px;" />
+					</MudCardContent>
+				</MudCard>
 			</MudButton>
 		</MudItem>
 	</MudGrid>
-}
-else
-{
-	<MudGrid>
-		<MudItem xs="12" Class="d-flex justify-end">
-			<MudIconButton OnClick="@(() => Mode = null)" Icon="@Icons.Material.Filled.KeyboardReturn" Size="Size.Medium" Color="Color.Warning" Class="border-4 border-solid mud-border-warning" />
-		</MudItem>
-		<MudItem xs="12">
-			@switch (Mode)
-			{
-				case GameMode.Online:
-					<OnlineSearch />
-					break;
-				case GameMode.Bots:
-					<BotSelection />
-					break;
-				case GameMode.Friend:
-					<FriendInvitation />
-					break;
-				case GameMode.Local:
-					<DefaultBoard />
-					break;
-				case GameMode.Challenge:
-					<ChallengesView />
-					break;
-			}
-		</MudItem>
-	</MudGrid>
-}
 </MudContainer>
-
 @code {
-	private GameMode? Mode { get; set; }
+	private bool IsAuthenticated { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		IsAuthenticated = (await AuthProvider.GetAuthenticationStateAsync()).User.Identity.IsAuthenticated;
+	}
 }

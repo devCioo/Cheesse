@@ -1,0 +1,16 @@
+﻿@page "/access-denied"
+
+<MudContainer Class="mt-16">
+	<MudStack AlignItems="AlignItems.Center"> 
+		<MudIcon Icon="@Icons.Material.Filled.Cancel" Color="Color.Error" Style="width: 100px; height: 100px;" />
+		<MudText Typo="Typo.h4">@Localizer["AccessDenied"]</MudText>
+		<MudText Typo="Typo.body1">@Localizer["NoViewPermissions"]</MudText>
+		<MudText Typo="Typo.body1">@Localizer["CheckCredentials"]</MudText>
+		<MudSpacer />
+		<MudText Typo="Typo.body2">@Localizer["ErrorCode"]: 403</MudText>
+	</MudStack>
+</MudContainer>
+
+@code {
+
+}

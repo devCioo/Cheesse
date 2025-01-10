@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
   <data name="ActivePlayers" xml:space="preserve">
     <value>active players</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="Challenges" xml:space="preserve">
     <value>Challenges</value>
   </data>
+  <data name="CheckCredentials" xml:space="preserve">
+    <value>Please check your credentials and try again.</value>
+  </data>
   <data name="ChooseBotDifficulty" xml:space="preserve">
     <value>Choose bot difficulty</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Endgame" xml:space="preserve">
     <value>Endgame</value>
+  </data>
+  <data name="ErrorCode" xml:space="preserve">
+    <value>Error code</value>
   </data>
   <data name="ExperiencePoints" xml:space="preserve">
     <value>xp</value>
@@ -234,6 +243,9 @@
   <data name="Level" xml:space="preserve">
     <value>Level</value>
   </data>
+  <data name="AuthorizationRequired" xml:space="preserve">
+    <value>This option is only available for logged in users</value>
+  </data>
   <data name="LoginAction" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -272,6 +284,9 @@
   </data>
   <data name="Normal" xml:space="preserve">
     <value>Normal</value>
+  </data>
+  <data name="NoViewPermissions" xml:space="preserve">
+    <value>You do not have permissions to view this page.</value>
   </data>
   <data name="Openings" xml:space="preserve">
     <value>Openings</value>

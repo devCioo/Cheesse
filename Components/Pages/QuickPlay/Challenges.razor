@@ -1,0 +1,83 @@
+﻿<MudContainer Class="mt-16">
+	<MudGrid Justify="Justify.Center" Class="mt-8">
+		<MudItem Class="d-flex justify-center">
+			<MudButton Class="ma-4 pa-4">
+				<ChildContent>
+					<MudBadge Origin="Origin.TopRight" Overlap Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success">
+						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+							<MudCardHeader>
+								<CardHeaderContent>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Challenge"] 1</MudText>
+								</CardHeaderContent>
+							</MudCardHeader>
+							<MudCardContent>
+								<MudText Typo="Typo.h6">@Localizer["Challenge1Title"]</MudText>
+								<MudText Typo="Typo.body2">"@Localizer["Challenge1Subtitle"]"</MudText>
+							</MudCardContent>
+							<MudCardActions>
+								<MudStack Row Spacing="1" AlignItems="AlignItems.Center">
+									<MudText Typo="Typo.body2">@Localizer["Difficulty"]:</MudText>
+									<MudIcon Icon="@Icons.Material.Rounded.SentimentVerySatisfied" Color="Color.Success" />
+								</MudStack>
+							</MudCardActions>
+						</MudCard>
+					</MudBadge>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+		<MudItem Class="d-flex justify-center">
+			<MudButton Class="ma-4 pa-4">
+				<ChildContent>
+					<MudBadge Origin="Origin.TopRight" Overlap Color="Color.Default">
+						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+							<MudCardHeader>
+								<CardHeaderContent>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Challenge"] 2</MudText>
+								</CardHeaderContent>
+							</MudCardHeader>
+							<MudCardContent>
+								<MudText Typo="Typo.h6">@Localizer["Challenge2Title"]</MudText>
+								<MudText Typo="Typo.body2">"@Localizer["Challenge2Subtitle"]"</MudText>
+							</MudCardContent>
+							<MudCardActions>
+								<MudStack Row Spacing="1" AlignItems="AlignItems.Center">
+									<MudText Typo="Typo.body2">@Localizer["Difficulty"]:</MudText>
+									<MudIcon Icon="@Icons.Material.Rounded.SentimentNeutral" Color="Color.Warning" />
+								</MudStack>
+							</MudCardActions>
+						</MudCard>
+					</MudBadge>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+		<MudItem Class="d-flex justify-center">
+			<MudButton Class="ma-4 pa-4">
+				<ChildContent>
+					<MudBadge Origin="Origin.TopRight" Overlap Icon="@Icons.Material.Filled.CheckCircle" Color="Color.Success">
+						<MudCard Elevation="25" Class="rounded-lg pb-4" Style="width: 250px; height: 250px;">
+							<MudCardHeader>
+								<CardHeaderContent>
+									<MudText Typo="Typo.h5" Align="Align.Center">@Localizer["Challenge"] 3</MudText>
+								</CardHeaderContent>
+							</MudCardHeader>
+							<MudCardContent>
+								<MudText Typo="Typo.h6">@Localizer["Challenge3Title"]</MudText>
+								<MudText Typo="Typo.body2">"@Localizer["Challenge3Subtitle"]"</MudText>
+							</MudCardContent>
+							<MudCardActions>
+								<MudStack Row Spacing="1" AlignItems="AlignItems.Center">
+									<MudText Typo="Typo.body2">@Localizer["Difficulty"]:</MudText>
+									<MudIcon Icon="@Icons.Material.Sharp.SentimentVeryDissatisfied" Color="Color.Error" />
+								</MudStack>
+							</MudCardActions>
+						</MudCard>
+					</MudBadge>
+				</ChildContent>
+			</MudButton>
+		</MudItem>
+	</MudGrid>
+</MudContainer>
+
+@code {
+
+}
